@@ -1,0 +1,21 @@
+#educ_det{
+    width: 50%;
+}
+.offcanvas-backdrop.show{
+    z-index: 0 !important;
+}
+.offcanvas-backdrop.show {
+    opacity: 0;
+}
+.main-parent-div{
+    width: 100%;
+}
+.main-parent-div.show{
+    width: 630px;
+    position: relative;
+    overflow: auto;
+}
+.main-parent-div.show .wrapper{
+    position: absolute;
+    overflow: scroll;
+}

@@ -1,0 +1,102 @@
+{% load static %}
+<!doctype html>
+<html class="no-js " lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="keyword" content="">
+    <title>Mind IT: Sign in</title>
+    <link rel="icon" href="{% static 'interne/assets/images/logo/favicon.png' %}" alt="Mind IT">
+    <link rel="stylesheet" href="{% static 'interne/assets/css/luno.style.min.css' %} ">
+    <link rel="stylesheet" href="{% static 'interne/assets/css/custom.css' %}">
+</head>
+
+<body id="layout-1" data-luno="theme-blue">
+    <div class="wrapper">
+        <div class="page-body auth px-xl-4 px-sm-2 px-0 py-lg-2 py-1">
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-lg-6 d-block justify-content-center align-items-center">
+                        <div class="mb-5 ps-4">
+                            <img src="{% static 'interne/assets/images/logo/interne-login.png' %}" alt="Interne" class="dark-logo ps-5">
+                            <img src="{% static 'interne/assets/images/logo/interne-login-white.png' %}" alt="Interne" class="white-logo ps-5">
+                            <h2 class="color-900 ps-5">Welcome to <span class="text-primary fw-bold">Interne</span></h2>
+                          </div>
+                        <div class="w-100 d-lg-flex align-items-center justify-content-center px-5"><img alt="Login V2"
+                                class="img-fluid login-img" src="{%static 'interne/assets/images/dashboard/login.png' %}"></div>
+                    </div>
+                    <div class="col-lg-6 d-flex justify-content-center align-items-center">
+                        <div class="card shadow-sm w-100 p-4 p-md-5" style="max-width: 28rem;">
+                            <form class="row g-3", method = "post">
+{% csrf_token %}
+                                <div class="mb-4 d-flex justify-content-center text-center">
+                                    <a href="#" class="brand-icon align-items-center text-primary">
+                                        <img src="{% static 'interne/assets/images/logo/logo_login.png' %}" alt="Mind IT Interne" class="dark-logo" style="height: 60px;">
+                            <img src="{% static 'interne/assets/images/logo/logo-login-white.png' %}" alt="Mind IT Interne" class="white-logo" style="height: 60px;">
+                                    </a>
+                                </div>
+                                <div class="col-12">
+                                    <div class="">
+                                        <label class="form-label">User ID</label>
+                                        <input type="email" class="form-control form-control-sm rounded"
+                                            placeholder="UserId", name = "user_id", id="user_id" required>
+                                        <div class="form-label text-end pt-2">
+                                            <span class="justify-content-between">
+
+                                                <a href="forgot_password.html">Forgot Password?</a>
+                                            </span>
+                                        </div>
+                                        <strong>{{error_message}}</strong>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="mb-2">
+                                        <div class="form-label">
+                                            <span class="d-flex justify-content-between align-items-center">
+                                                Password
+
+                                            </span>
+                                        </div>
+                                        <input type="password" class="form-control form-control-sm rounded" name="password" id="password"
+                                            placeholder="***************" required>
+                                    </div>
+                                </div>
+                                {{error_message}}
+                                <div class="col-12">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Remember me
+                                        </label>
+                                    </div>
+                                </div>
+                                   <div class="col-lg-12">
+                                    <a class="btn btn-sm btn-primary lift px-2 rounded mb-2" href="super-admin/members.html"
+                                        title="">Super Admin</a>
+                                        <a class="btn btn-sm btn-primary lift px-2 rounded mb-2" href="admin/members.html"
+                                        title="">Admin</a>
+                                        <a class="btn btn-sm btn-primary lift px-2 rounded mb-2" href="manager/mngr_team.html"
+                                        title="">Manager</a>
+                                    <button type='submit'><a class="btn btn-sm btn-primary lift px-2 rounded mb-2"
+                                        title="">Employee</a><button>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <script src="{ % static 'interne/assets/bundles/libscripts.bundle.js' %}"></script>
+
+
+</body>
+
+</html>

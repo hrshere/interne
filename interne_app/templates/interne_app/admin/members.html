@@ -1,0 +1,501 @@
+<!doctype html>
+<html class="no-js " lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="keyword" content="">
+    <title>:: Mind IT :: Members</title>
+    <link rel="icon" href="../assets/images/logo/favicon.png" type="image/x-icon"> 
+    <link rel="stylesheet" href="../assets/css/daterangepicker.min.css">
+    <link rel="stylesheet" href="../assets/css/dataTables.min.css">
+    <link rel="stylesheet" href="../assets/css/luno.style.min.css">
+    <link rel="stylesheet" href="../assets/css/custom.css">
+</head>
+
+<body class="layout-2 option2" data-luno="theme-blue">
+    <div id="flexbox">
+        <div class="nb-spinner"></div>
+      </div>
+    <div w3-include-html="../include/admin_sidebar.html"></div>
+    <div class="wrapper" style="overflow-y: scroll;">
+        <header class="page-header sticky-top px-xl-4 px-sm-2 px-0 py-lg-2 py-1">
+            <div class="container-fluid">
+                <nav class="navbar">
+                    <div class="d-flex">
+                        <button type="button" class="btn btn-link d-none d-xl-block sidebar-mini-btn p-0 text-primary">
+                            <span class="hamburger-icon">
+                                <span class="line"></span>
+                                <span class="line"></span>
+                                <span class="line"></span>
+                            </span>
+                        </button>
+                        <a href="#" class="brand-icon d-flex align-items-center mx-2 mx-sm-3 text-primary"></a>
+                        <button type="button" class="btn btn-link d-block d-xl-none menu-toggle p-0 text-primary">
+                            <span class="hamburger-icon">
+                                <span class="line"></span>
+                                <span class="line"></span>
+                                <span class="line"></span>
+                            </span>
+                        </button>
+
+                        <a href="#" class="brand-icon d-flex align-items-center mx-2 mx-sm-3 text-primary">
+                            <img src="../assets/images/logo/logo.png" alt="Mind IT Interne" class="dark-logo" style="height: 40px;">
+                            <img src="../assets/images/logo/logo-white.png" alt="Mind IT Interne" class="white-logo" style="height: 40px;">
+                        </a>
+                    </div>
+                    <div class="header-left flex-grow-1 d-none d-md-block">
+                        <div class="main-search px-3 flex-fill">
+                            <input class="form-control cntrl rounded" type="text" placeholder="Search..">
+                        </div>
+                    </div>
+                    <div w3-include-html="../include/admin_header.html"></div>
+                </nav>
+
+            </div>
+        </header>
+        <div class="page-toolbar px-xl-4 px-sm-2 px-0 pt-3">
+            <div class="container-fluid">
+
+                <div class="row mb-3 align-items-center">
+                    <div class="col">
+                        <ol class="breadcrumb bg-transparent mb-0">
+                            <li class="breadcrumb-item"><a class="text-secondary" href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Members</li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-auto">
+                        <h1 class="fs-5 color-900 mt-1 mb-0">Manage members</h1>
+                        <small class="text-muted">View list or filter members data</small>
+                    </div>
+                    <div class="col d-flex justify-content-lg-end mt-1 mt-md-0">
+                        <div class="p-2 pe-lg-0 mt-1 px-3 ps-0">
+                            <div class="d-sm-block ms-auto">
+                                <div class="btn-group" role="group">
+                                    <a class="btn btn-sm btn-primary rounded" href="add_member.html"><i class="fa fa-plus fa-sm"></i> Add</a>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="page-body px-xl-4 px-sm-2 px-0 py-lg-2">
+            <div class="container-fluid">
+                <div class="row g-3">
+                    <div class="col-12">
+                        <div class="card-body rmargin mb-3">
+                            <div class="row">
+                                <div class="col-lg-2 col-md-6 col-6 py-1">
+                                    <label for="TextInput" class="form-label mb-1">Manager</label>
+                                    <select class="form-select borad">
+                                        <option value="">...</option>
+                                        <option value="" selected>Aman</option>
+                                        <option value="">Rajesh</option>
+                                        <option value="">Mansi</option>
+                                        <option value="">Karan</option>
+                                        <option value="">Anjali</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-2 col-md-6 col-6 py-1">
+                                    <label for="TextInput" class="form-label mb-1">Member</label>
+                                    <input type="text" class="form-control rounded" placeholder="">
+                                </div>
+                                <div class="col-lg-2 col-md-6 col-6 py-1">
+                                    <label for="TextInput" class="form-label mb-1">Department</label>
+                                    <select class="form-select borad">
+                                        <option>...</option>
+                                        <option>IT</option>
+                                        <option>Management</option>
+                                        <option>Designing</option>
+                                        <option>Human Resource</option>
+                                        <option>Marketing</option>
+                                        <option>Accounts</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-2 col-md-6 col-6 py-1">
+                                    <label for="TextInput" class="form-label mb-1">Location</label>
+                                    <select class="form-select borad">
+                                        <option>...</option>
+                                        <option>Delhi</option>
+                                        <option>Kolkata</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-2 col-md-6 col-6 py-1">
+                                    <label for="TextInput" class="form-label mb-1">Designation</label>
+                                    <select class="form-select borad">
+                                        <option>...</option>
+                                        <option>Graphic Designer</option>
+                                        <option>Team Lead</option>
+                                        <option>Frontend Developer</option>
+                                        <option>Associate Software Traniee</option>
+                                        <option>Software Developer</option>
+                                        <option>Human Resource</option>
+                                    </select>
+
+                                </div>
+                                
+
+                                <div class="col-lg-2 col-md-6 col-6 py-1">
+                                    <label for="TextInput" class="form-label mb-1">Status</label>
+                                    <select class="form-select borad">
+                                        <option value="">...</option>
+                                        <option value="">Internship</option>
+                                        <option value="">Trainee</option>
+                                        <option value="">Probation</option>
+                                        <option value="">Confirmed</option>
+                                        <option value="">Temporary</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-3 col-md-6 py-1">
+                                    <label for="TextInput" class="form-label mb-1">Date of
+                                        Joining</label>
+                                    <div class=" border rounded ypad" id="reportrange"
+                                        >
+                                        <i class="fa fa-calendar"></i>&nbsp;<span>Jul 8, 23 - Aug 6,
+                                            23</span> <i class="fa fa-caret-down"></i>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6 py-1">
+                                    <label for="TextInput" class="form-label mb-1">Confirmation
+                                        Date</label>
+                                    <div class=" border rounded ypad" id="reportrange1"
+                                        >
+                                        <i class="fa fa-calendar"></i>&nbsp;<span>Jul 8, 23 - Aug 6,
+                                            23</span> <i class="fa fa-caret-down"></i>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6 py-1">
+                                    <label for="TextInput" class="form-label mb-1">Next Appraisal
+                                        Date</label>
+                                    <div class=" border rounded ypad" id="reportrange2"
+                                        >
+                                        <i class="fa fa-calendar"></i>&nbsp;<span>Jul 8, 23 - Aug 6,
+                                            23</span> <i class="fa fa-caret-down"></i>
+                                    </div>
+                                </div>
+
+
+
+
+
+                                <div class="col-lg-2 col-md-9 pt-2 mt-4">
+                                    <button
+                                        class="btn btn-sm btn-secondary mx-2 rounded ms-0">Apply</button>
+                                    <button class="btn btn-sm btn-outline-secondary rounded"
+                                        type="button"> Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mt-2">
+                           
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table id="contact_list"
+                                        class="table align-middle mb-0 card-table myDataTable">
+                                        <thead>
+                                            <tr>
+                                                <th>Member</th>
+                                                <th>Department</th>
+                                                <th>Location</th>
+                                                <th>Designation</th>
+                                                <th>DOJ</th>
+                                                <th>Confirmation</th>
+                                                <th>Next Appraisal</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+
+                                                    <div class="d-flex align-items-center">
+
+                                                        <img src="../assets/images/xs/avatar3.jpg"
+                                                            class="rounded-circle avatar" alt="">
+                                                        <a href="candidate_profile.html">
+                                                            <div class="ms-2">
+                                                                <div class="mb-0">Abhinav Shukla</div>
+                                                                <span class="text-muted">Mgr: Aman
+                                                                    Kumar</span>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+
+                                                </td>
+                                                <td>Designing</td>
+                                                <td>Delhi</td>
+                                                <td>Associate Designer</td>
+                                                <td>02 Sep 2023</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td><span class="badge bg-danger">Temporary</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+
+                                                    <div class="d-flex align-items-center">
+
+                                                        <img src="../assets/images/xs/avatar1.jpg"
+                                                            class="rounded-circle avatar" alt="">
+                                                        <a href="member_profile.html">
+                                                            <div class="ms-2">
+                                                                <div class="mb-0">Simran </div>
+                                                                <span class="text-muted">Mgr: Aman
+                                                                    Kumar</span>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+
+                                                </td>
+                                                <td>Designing</td>
+                                                <td>Delhi</td>
+                                                <td>Associate Designer</td>
+                                                <td>02 Sep 2023</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td><span class="badge bg-warning">Probation</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+
+                                                        <img src="../assets/images/xs/avatar2.jpg"
+                                                            class="rounded-circle avatar" alt="">
+                                                        <a href="member_profile.html">
+                                                            <div class="ms-2">
+                                                                <div class="mb-0">Rohit Kumar</div>
+                                                                <span class="text-muted">Mgr: Rajesh
+                                                                    Verma</span>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                                <td>Designing</td>
+                                                <td>Delhi</td>
+                                                <td>Full stack developer</td>
+                                                <td>07 Sep 2020</td>
+                                                <td>07 Jan 2021</td>
+                                                <td>07 Jan 2024</td>
+                                                <td><span class="badge bg-success">Confirmed</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+
+                                                    <div class="d-flex align-items-center">
+
+                                                        <img src="../assets/images/xs/avatar4.jpg"
+                                                            class="rounded-circle avatar" alt="">
+                                                        <a href="member_profile.html">
+                                                            <div class="ms-2">
+                                                                <div class="mb-0">Nancy</div>
+                                                                <span class="text-muted">Mgr: Manish</span>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+
+                                                </td>
+                                                <td>IT</td>
+                                                <td>Delhi</td>
+                                                <td>Frontend Developer</td>
+                                                <td>21 May 2023</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td><span class="badge bg-info">Trainee</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+
+                                                    <div class="d-flex align-items-center">
+
+                                                        <img src="../assets/images/xs/avatar6.jpg"
+                                                            class="rounded-circle avatar" alt="">
+                                                        <a href="candidate_profile.html">
+                                                            <div class="ms-2">
+                                                                <div class="mb-0">Ajay</div>
+                                                                <span class="text-muted">Mgr: Aman</span>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+
+                                                </td>
+                                                <td>Marketing</td>
+                                                <td>Kolkata</td>
+                                                <td>Sales Manager</td>
+                                                <td>21 Aug 2023</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td><span class="badge bg-danger">Temporary</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+
+                                                    <div class="d-flex align-items-center">
+                                                        <img src="../assets/images/xs/avatar7.jpg"
+                                                            class="rounded-circle avatar" alt="">
+                                                        <a href="member_profile.html">
+                                                            <div class="ms-2">
+                                                                <div class="mb-0">Robin Verma</div>
+                                                                <span class="text-muted">Mgr: Aman</span>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+
+                                                </td>
+                                                <td>Developing</td>
+                                                <td>Delhi</td>
+                                                <td>.NET developer</td>
+                                                <td>14 Nov 2016</td>
+                                                <td>14 Mar 2017</td>
+                                                <td>14 Mar 2024</td>
+                                                <td><span class="badge bg-success">Confirmed</span></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+
+                                                    <div class="d-flex align-items-center">
+
+                                                        <img src="../assets/images/xs/avatar8.jpg"
+                                                            class="rounded-circle avatar" alt="">
+                                                        <a href="member_profile.html">
+                                                            <div class="ms-2">
+                                                                <div class="mb-0">Anju</div>
+                                                                <span class="text-muted">Mgr: Manish</span>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+
+                                                </td>
+                                                <td>Accounts</td>
+                                                <td>Delhi</td>
+                                                <td>Sr. Manager</td>
+                                                <td>10 Jul 2023</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td><span class="badge bg-info">Trainee</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      
+
+
+        <div w3-include-html="../include/footer.html"></div>
+
+    </div>
+
+    <script src="../assets/bundles/libscripts.bundle.js"></script>
+    <script src="../assets/bundles/daterangepicker.bundle.js"></script>
+    <script src="../assets/bundles/dataTables.bundle.js"></script>
+    <script src="../include/include.js"></script>
+    <script src="../assets/js/custom.js"></script>
+   
+    <script>
+     // project data table
+        $('.myDataTable')
+            .addClass('nowrap')
+            .dataTable({
+                responsive: false,
+                searching: false,
+                paging: true,
+                ordering: true,
+                info: false,
+            });
+    </script>
+
+    <script>
+        $(function () {
+            var start = moment().subtract(29, 'days');
+            var end = moment();
+            function cb(start, end) {
+                $('#reportrange span').html(start.format('D MMM, YYYY') + ' - ' + end.format('D MMM, YYYY'));
+            }
+            $('#reportrange').daterangepicker({
+                startDate: start,
+                endDate: end,
+                ranges: {
+                    'Today': [moment(), moment()],
+                    'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                    'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                    'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                    'This Month': [moment().startOf('month'), moment().endOf('month')],
+                    'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                }
+            }, cb);
+            cb(start, end);
+        });
+    </script>
+
+    <script>
+        $(function () {
+            var start = moment().subtract(29, 'days');
+            var end = moment();
+            function cb(start, end) {
+                $('#reportrange1 span').html(start.format('D MMM, YYYY') + ' - ' + end.format('D MMM, YYYY'));
+            }
+            $('#reportrange1').daterangepicker({
+                startDate: start,
+                endDate: end,
+                ranges: {
+                    'Today': [moment(), moment()],
+                    'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                    'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                    'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                    'This Month': [moment().startOf('month'), moment().endOf('month')],
+                    'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                }
+            }, cb);
+            cb(start, end);
+        });
+    </script>
+
+    <script>
+        $(function () {
+            var start = moment().subtract(29, 'days');
+            var end = moment();
+            function cb(start, end) {
+                $('#reportrange2 span').html(start.format('D MMM, YYYY') + ' - ' + end.format('D MMM, YYYY'));
+            }
+            $('#reportrange2').daterangepicker({
+                startDate: start,
+                endDate: end,
+                ranges: {
+                    'Today': [moment(), moment()],
+                    'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                    'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                    'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                    'This Month': [moment().startOf('month'), moment().endOf('month')],
+                    'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                }
+            }, cb);
+            cb(start, end);
+        });
+    </script>
+ <script>
+        includeHTML();
+    </script>
+    <script>   
+        setTimeout(function(){
+           document.getElementById("flexbox").style.display="none";
+        }, 3000);  
+        </script>
+</body>
+
+</html>

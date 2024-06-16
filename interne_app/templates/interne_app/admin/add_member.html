@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="keyword" content="" />
+        <title>:: Mind IT :: Add Members</title>
+        <link rel="icon" href="../assets/images/logo/favicon.png" type="image/x-icon" />
+        <link rel="stylesheet" href="../assets/css/dataTables.min.css" />
+        <link rel="stylesheet" href="../assets/css/luno.style.min.css" />
+        <link rel="stylesheet" href="../assets/css/bootstrapdatepicker.min.css" />
+        <link rel="stylesheet" href="../assets/css/custom.css" />
+        <link rel="stylesheet" href="../assets/css/jquerysteps.min.css" />
+        <link rel="stylesheet" href="../assets/css/dropify.min.css" />
+        <link rel="stylesheet" href="../assets/css/select2.min.css">
+    </head>
+
+    <body class="layout-2 option2" data-luno="theme-blue">
+        
+        <div w3-include-html="../include/spr_adm_sidebar.html"></div>
+        <div class="wrapper" style="overflow-y: scroll;">
+            <header class="page-header sticky-top px-xl-4 px-sm-2 px-0 py-lg-2 py-1">
+                <div class="container-fluid">
+                    <nav class="navbar">
+                        <div class="d-flex">
+                            <button type="button" class="btn btn-link d-none d-xl-block sidebar-mini-btn p-0 text-primary">
+                                <span class="hamburger-icon">
+                                    <span class="line"></span>
+                                    <span class="line"></span>
+                                    <span class="line"></span>
+                                </span>
+                            </button>
+                            <a href="#" class="brand-icon d-flex align-items-center mx-2 mx-sm-3 text-primary"></a>
+                            <button type="button" class="btn btn-link d-block d-xl-none menu-toggle p-0 text-primary">
+                                <span class="hamburger-icon">
+                                    <span class="line"></span>
+                                    <span class="line"></span>
+                                    <span class="line"></span>
+                                </span>
+                            </button>
+
+                            <a href="#" class="brand-icon d-flex align-items-center mx-2 mx-sm-3 text-primary">
+                                <img src="../assets/images/logo/logo.png" alt="Mind IT Interne" class="dark-logo" style="height: 40px;">
+                                <img src="../assets/images/logo/logo-white.png" alt="Mind IT Interne" class="white-logo" style="height: 40px;">
+                            </a>
+                        </div>
+                        <div class="header-left flex-grow-1 d-none d-md-block">
+                            <div class="main-search px-3 flex-fill">
+                                <input class="form-control cntrl rounded" type="text" placeholder="Search.." />
+                            </div>
+                        </div>
+                        <div w3-include-html="../include/spr_adm_header.html"></div>
+                    </nav>
+                </div>
+            </header>
+            <div class="page-toolbar px-xl-4 px-sm-2 px-0 pt-3">
+                <div class="container-fluid">
+                    <div class="row mb-3 align-items-center">
+                        <div class="col">
+                            <ol class="breadcrumb bg-transparent mb-0">
+                                <li class="breadcrumb-item"><a class="text-secondary" href="#">Home</a></li>
+                                <li class="breadcrumb-item"><a class="text-secondary" href="members.html">Members</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Add Member</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-toolbar px-xl-4 px-sm-2 px-0 py-2">
+                <div class="container-fluid">
+                    <div class="col-12">
+                        <div class="row g-3">
+                            <div class="col-lg-10 col-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h6 class="card-title mb-0">Basic</h6>
+                                    </div>
+                                    <div class="card-body pt-0">
+                                        <form class="row g-3">
+                                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                                <label class="form-label">First Name <sup class="mandatory">*</sup></label>
+                                                <fieldset class="position-relative">
+                                                    <input type="text" class="form-control rounded" required />
+                                                </fieldset>
+                                            </div>
+                                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                                <label class="form-label">Last Name <sup class="mandatory">*</sup></label>
+                                                <fieldset class="position-relative">
+                                                    <input type="text" class="form-control rounded" required />
+                                                </fieldset>
+                                            </div>
+                                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                                <label class="form-label">Mobile <sup class="mandatory">*</sup></label>
+                                                <fieldset class="position-relative">
+                                                    <input type="number" class="form-control rounded" required />
+                                                </fieldset>
+                                            </div>
+                                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                                <label class="form-label">Email <sup class="mandatory">*</sup></label>
+                                                <fieldset class="position-relative">
+                                                    <input type="email" class="form-control rounded" required />
+                                                </fieldset>
+                                            </div>
+                                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                                <label class="form-label">Date of Birth <sup class="mandatory">*</sup></label>
+                                                <fieldset class="position-relative">
+                                                    <input type="text" class="form-control borad datepicker rounded" required />
+                                                </fieldset>
+                                            </div>
+                                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                                <label class="form-label">Gender <sup class="mandatory">*</sup></label>
+                                                <fieldset class="position-relative">
+                                                    <select name="" id="" class="form-select rounded" required>
+                                                        <option value="">...</option>
+                                                        <option value="">Male</option>
+                                                        <option value="">Female</option>
+                                                        <option value="">Others</option>
+                                                    </select>
+                                                </fieldset>
+                                            </div>
+                                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                                <label class="form-label">Father's Name <sup class="mandatory">*</sup></label>
+                                                <fieldset class="position-relative">
+                                                    <input type="text" class="form-control rounded" required />
+                                                </fieldset>
+                                            </div>
+                                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                                <label class="form-label">Mother's Name </label>
+                                                <fieldset class="position-relative">
+                                                    <input type="text" class="form-control rounded" required />
+                                                </fieldset>
+                                            </div>
+                                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                                <label class="form-label">Category <sup class="mandatory">*</sup></label>
+                                                <fieldset class="position-relative">
+                                                    <select name="" id="" class="form-select rounded" required>
+                                                        <option value="">...</option>
+                                                        <option value="">General</option>
+                                                        <option value="">OBC</option>
+                                                        <option value="">SC/ST</option>
+                                                    </select>
+                                                </fieldset>
+                                            </div>
+                                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                                <label class="form-label">Religion</label>
+                                                <fieldset class="position-relative">
+                                                    <select name="" id="" class="form-select rounded">
+                                                        <option value="">...</option>
+                                                        <option value="">Hinduism</option>
+                                                        <option value="">Christianity</option>
+                                                        <option value="">Islam</option>
+                                                        <option value="">Buddhism</option>
+                                                    </select>
+                                                </fieldset>
+                                            </div>
+                                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                                <label class="form-label">Blood Group <sup class="mandatory">*</sup></label>
+                                                <fieldset class="position-relative">
+                                                    <select name="" id="" class="form-select rounded">
+                                                        <option value="">...</option>
+                                                        <option value="">O+</option>
+                                                        <option value="">O-</option>
+                                                        <option value="">A+</option>
+                                                        <option value="">A-</option>
+                                                        <option value="">B+</option>
+                                                        <option value="">B-</option>
+                                                        <option value="">AB+</option>
+                                                        <option value="">AB-</option>
+                                                    </select>
+                                                </fieldset>
+                                            </div>
+
+                                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                                <label class="form-label">Marital Status <sup class="mandatory">*</sup></label>
+                                                <fieldset class="position-relative">
+                                                    <select name="" id="" class="form-select rounded" required>
+                                                        <option value="">...</option>
+                                                        <option value="">Married</option>
+                                                        <option value="">Single</option>
+                                                    </select>
+                                                </fieldset>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-2 col-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h6 class="card-title mb-0">Profile Photo</h6>
+                                    </div>
+                                    <div class="card-body py-4">
+                                        <div class="image-input avatar xxl rounded-4" style="background-image: url(../assets/images/avatar/avatar.png);">
+                                            <div class="avatar-wrapper rounded-4"></div>
+                                            <div class="file-input">
+                                                <input type="file" class="form-control" name="file-input" id="file-input" />
+                                                <label for="file-input" class="fa fa-pencil shadow"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-9 pt-2 mt-4">
+                            <button class="btn btn-sm btn-secondary mx-2 rounded ms-0">Submit</button>
+                            <button class="btn btn-sm btn-outline-secondary rounded" type="button"> Cancel</button>
+                        </div>
+
+
+                      
+                    </div>
+                </div>
+            </div>
+
+           
+
+         
+            <div w3-include-html="../include/footer.html"></div>
+        </div>
+
+        <script src="../assets/bundles/libscripts.bundle.js"></script>
+        <script src="../assets/bundles/dataTables.bundle.js"></script>
+        <script src="../include/include.js"></script>
+        <script src="../assets/js/custom.js"></script>
+        <script src="../assets/bundles/bootstrapdatepicker.bundle.js"></script>
+        <script src="../assets/bundles/dropify.bundle.js"></script>
+        <script src="../assets/bundles/select2.bundle.js"></script>
+        <script>
+
+            $(function () {
+                $(".dropify").dropify();
+                var drEvent = $("#dropify-event").dropify();
+                drEvent.on("dropify.beforeClear", function (event, element) {
+                    return confirm('Do you really want to delete "' + element.file.name + '" ?');
+                });
+                drEvent.on("dropify.afterClear", function (event, element) {
+                    alert("File deleted");
+                });
+                $(".dropify-fr").dropify({
+                    messages: {
+                        default: "Glissez-dÃ©posez un fichier ici ou cliquez",
+                        replace: "Glissez-dÃ©posez un fichier ou cliquez pour remplacer",
+                        remove: "Supprimer",
+                        error: "DÃ©solÃ©, le fichier trop volumineux",
+                    },
+                });
+            });
+        </script>
+        <script>
+            $(".datepicker").datepicker({});
+        </script>
+        <script>
+            // project data table
+            $(".myDataTable").addClass("nowrap").dataTable({
+                responsive: false,
+                searching: false,
+                paging: true,
+                ordering: true,
+                info: false,
+            });
+        </script>
+
+        <script>
+            includeHTML();
+        </script>
+        <script>
+            $(document).ready(function () {
+                $('#disease input[type="radio"]').click(function () {
+                    if ($(this).attr("id") == "yes") {
+                        $("#yes_disease").addClass("show");
+                    } else {
+                        $("#yes_disease").removeClass("show");
+                    }
+                });
+            });
+
+            
+
+            $(document).ready(function () {
+                $('#criminal input[type="radio"]').click(function () {
+                    if ($(this).attr("id") == "criminal_yes") {
+                        $("#yes_criminal").addClass("show");
+                    } else {
+                        $("#yes_criminal").removeClass("show");
+                    }
+                });
+            });
+        </script>
+       
+        <script>
+            var faqs_row = 0;
+            function adddisease() {
+                html = '<tr id="faqs-row' + faqs_row + '">';
+                html += '<td class="align-baseline"><textarea rows="1" class="form-control rounded" required></textarea></td>';
+                html +=
+                    '<td class="align-baseline"><select name="" id="" class="form-control form-select rounded"><option value="">...</option><option value="">Low</option><option value="">Medium</option><option value="">High</option></select></td>';
+                html += '<td class="align-baseline"><input type="file" class="form-control rounded" placeholder="Upload file"></td>';
+                html += "</tr>";
+
+                $("#disease tbody").append(html);
+
+                faqs_row++;
+            }
+        </script>
+
+<script>
+    $(document).ready(function () {
+$('#documents-list').select2({
+width: "100%",
+dropdownParent: $("#add_document"),
+tags: true,
+tokenSeparators: [',', ' '], 
+});
+
+
+const fruits = ['...' , 'Aadhar', 'PAN card' , '10th certificate' , '12th certificate' , 'Degree certificate' , 'Previous employer relieving letter'];
+
+function populateDropdown() {
+const dropdown = $('#documents-list');
+
+dropdown.empty();
+
+fruits.forEach(fruit => {
+dropdown.append(new Option(fruit, fruit, false, false)); 
+});
+
+dropdown.trigger('change');
+}
+
+populateDropdown();
+});
+
+
+    
+    </script>
+    </body>
+</html>

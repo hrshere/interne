@@ -1,0 +1,1043 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="keyword" content="" />
+        <title>:: Mind IT :: Profile</title>
+        <link rel="icon" href="{% static '../assets/images/logo/favicon.png' %}" alt="Mind IT" />
+        <link rel="stylesheet" href="{% static 'interne/assets/css/dataTables.min.css' %}" />
+        <link rel="stylesheet" href="{% static 'interne/assets/css/luno.style.min.css' %}" />
+        <link rel="stylesheet" href="{% static 'interne/assets/css/bootstrapdatepicker.min.css' %}" />
+        <link rel="stylesheet" href="{% static 'interne/assets/css/dropify.min.css' %}" />
+        <link rel="stylesheet" href="{% static 'interne/assets/css/custom.css' %}" />
+    </head>
+
+    <body class="layout-2 option2" data-luno="theme-blue">
+        <div w3-include-html="../include/empy_sidebar.html"></div>
+        <div class="wrapper" style="overflow-y: scroll;">
+            <header class="page-header sticky-top px-xl-4 px-sm-2 px-0 py-lg-2 py-1">
+                <div class="container-fluid">
+                    <nav class="navbar">
+                        <div class="d-flex">
+                            <button type="button" class="btn btn-link d-none d-xl-block sidebar-mini-btn p-0 text-primary">
+                                <span class="hamburger-icon">
+                                    <span class="line"></span>
+                                    <span class="line"></span>
+                                    <span class="line"></span>
+                                </span>
+                            </button>
+                            <a href="#" class="brand-icon d-flex align-items-center mx-2 mx-sm-3 text-primary"></a>
+                            <button type="button" class="btn btn-link d-block d-xl-none menu-toggle p-0 text-primary">
+                                <span class="hamburger-icon">
+                                    <span class="line"></span>
+                                    <span class="line"></span>
+                                    <span class="line"></span>
+                                </span>
+                            </button>
+
+                            <a href="#" class="brand-icon d-flex align-items-center mx-2 mx-sm-3 text-primary">
+                                <img src="{% static 'interne/assets/images/logo/logo.png' %}" alt="Mind IT Interne" class="dark-logo" style="height: 40px;">
+                            <img src="{% static 'interne/assets/images/logo/logo-white.png' %}" alt="Mind IT Interne" class="white-logo" style="height: 40px;">
+                            </a>
+                        </div>
+                        <div class="header-left flex-grow-1 d-none d-md-block">
+                            <div class="main-search px-3 flex-fill">
+                                <input class="form-control cntrl rounded" type="text" placeholder="Search.." />
+                            </div>
+                        </div>
+                        <div w3-include-html="../include/empy_header.html"></div>
+                    </nav>
+                </div>
+            </header>
+            <div class="page-toolbar px-xl-4 px-sm-2 px-0 pt-3">
+                <div class="container-fluid">
+                    <div class="row mb-3 align-items-center">
+                        <div class="col">
+                            <ol class="breadcrumb bg-transparent mb-0">
+                                <li class="breadcrumb-item">
+                                    <a class="text-secondary" href="#">Home</a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    Profile
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="row align-items-center">
+                        <div class="col-auto">
+                            <div class="media-body m-0 mt-4 text-md-start">
+                                <div class="d-flex">
+                                    <a href="#" class="d-block w10"><img src="{% static 'interne/assets/images/lg/avatar5.jpg' %}" class="avatar lg rounded-circle" alt="" /></a>
+                                    <div class="ms-3">
+                                        <h4 class="fw-bold">
+                                            <span class="text-primary">{{userprofile.full_name}}</span>
+                                        </h4>
+                                        <p><i class="fa fa-envelope me-2"></i> {{userprofile.user_email}}, <i class="fa fa-phone"></i> +91 {{userprofile.user_phone}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-body px-xl-4 px-sm-2 px-0 py-lg-2 py-1 mt-3">
+                <div class="container-fluid">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <ul class="nav nav-tabs tab-card pt-3">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-bs-toggle="tab" href="#personal">Basic</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#contact">Contact</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#identity">Identity</a>
+                                </li>
+                                <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#official">Official</a></li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#education_details">Education </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#previous_emp" role="tab">Experience</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#documents" role="tab">Documents</a>
+                                </li>
+                            </ul>
+                            <div class="card-body">
+                                <div class="tab-content mt-3">
+                                    <div role="tabpanel" class="tab-pane in active" id="personal">
+                                        <div class="row">
+                                            <div class="col-lg-12 col-12">
+                                                <div class="row">
+                                                    <div class="doctor-detail order-1 order-md-0">
+                                                        <h6 class="d-flex justify-content-between align-items-center">
+                                                            Basic
+                                                            <span><a href="#" class="fa fa-pencil-square-o fs-6 ms-2" data-bs-toggle="offcanvas" data-bs-target="#edit_basic" title="Edit"></a></span>
+                                                        </h6>
+
+                                                        <div class="row">
+                                                            <div class="col-lg-9">
+                                                                <div class="row mt-2 d-flex">
+                                                                    <div class="col-lg-3 col-6 mb-3">
+                                                                        <small class="text-muted">First Name</small>
+                                                                        <div class="mb-0 fw-bold">Annu</div>
+                                                                    </div>
+                                                                    <div class="col-lg-3 col-6 mb-3">
+                                                                        <small class="text-muted">Last Name</small>
+                                                                        <div class="mb-0 fw-bold">Sharma</div>
+                                                                    </div>
+                                                                    <div class="col-lg-3 col-6 mb-3">
+                                                                        <small class="text-muted">Date of Birth</small>
+                                                                        <div class="mb-0 fw-bold">16 Aug, 1998</div>
+                                                                    </div>
+                                                                    <div class="col-lg-3 col-6 mb-3">
+                                                                        <small class="text-muted">Gender</small>
+                                                                        <div class="mb-0 fw-bold">{{userprofile.get_gender_display}}</div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row mt-2 d-flex">
+                                                                    <div class="col-lg-3 col-6 mb-3">
+                                                                        <small class="text-muted">Father's Name</small>
+                                                                        <div class="mb-0 fw-bold">
+                                                                            {{userprofile.father_name}}
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-3 col-6 mb-3">
+                                                                        <small class="text-muted">Category </small>
+                                                                        <div class="mb-0 fw-bold">General</div>
+                                                                    </div>
+                                                                    <div class="col-lg-3 col-6 mb-3">
+                                                                        <small class="text-muted">Religion </small>
+                                                                        <div class="mb-0 fw-bold">Hinduism</div>
+                                                                    </div>
+                                                                    <div class="col-lg-3 col-6 mb-3">
+                                                                        <small class="text-muted">Blood Group</small>
+                                                                        <div class="mb-0 fw-bold">A+</div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row mb-3 mt-2 d-flex">
+                                                                    <div class="col-lg-3 col-6 mb-3">
+                                                                        <small class="text-muted">Marital Status</small>
+                                                                        <div class="mb-0 fw-bold">Single</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-3">
+                                                                <a href="#" class="d-block"><img src="{% static 'interne/assets/images/lg/avatar5.jpg' %}" class="rounded avtar_md" alt="" /></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div role="tabpanel" class="tab-pane" id="contact">
+                                        <div class="d-sm-flex row-title justify-content-between mb-1 pb-2">
+                                            <h6 class="">Contact</h6>
+                                            <div>
+                                                <button class="btn btn-outline-primary rounded btn-sm" data-bs-toggle="offcanvas" data-bs-target="#add_contact"><i class="fa fa-plus"></i> Add</button>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-12 col-12">
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <div class="table-responsive">
+                                                            <table class="table align-middle mb-0 card-table">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th class="sorting">Full Name</th>
+                                                                        <th class="sorting">Type</th>
+                                                                        <th class="sorting">Phone</th>
+                                                                        <th class="sorting">Email</th>
+
+                                                                        <th class="sorting">Current Address</th>
+                                                                        <th class="sorting">Permanent Address</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>Annu Sharma</td>
+                                                                        <td>Self</td>
+                                                                        <td>9712345678</td>
+                                                                        <td>shurbhi@gmail.com</td>
+                                                                        <td>
+                                                                            E 291, Part 2, 2nd Floor, Greater Kailash Delhi, Delhi, 110048 India
+                                                                        </td>
+                                                                        <td>
+                                                                            66, 2, Khetwadi Back Rd, 6 Th Khetwadi Lane, Khetwadi, Mumbai, 400004, India
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Shurbhi Rishi</td>
+                                                                        <td>Emergency</td>
+                                                                        <td>9734567802</td>
+                                                                        <td>shurbhi@gmail.com</td>
+                                                                        <td>
+                                                                            E 291, Part 2, 2nd Floor, Greater Kailash Delhi, Delhi, 110048 India
+                                                                        </td>
+                                                                        <td>
+                                                                            66, 2, Khetwadi Back Rd, 6 Th Khetwadi Lane, Khetwadi, Mumbai, 400004, India
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane" id="official">
+                                        <div class="row">
+                                            <div class="col-lg-12 col-12">
+                                                <div class="row">
+                                                    <div class="doctor-detail order-1 order-md-0">
+                                                        <h6 class="d-flex justify-content-between align-items-center">
+                                                            Official
+                                                        </h6>
+
+                                                        <div class="row">
+                                                            <div class="col-lg-12">
+                                                                <div class="row d-flex">
+                                                                    <div class="col-lg-2 col-6 mb-3">
+                                                                        <small class="text-muted">Member Code</small>
+                                                                        <div class="mb-0 fw-bold">019</div>
+                                                                    </div>
+                                                                    <div class="col-lg-2 col-6 mb-3">
+                                                                        <small class="text-muted">Expereince</small>
+                                                                        <div class="mb-0 fw-bold">1.6</div>
+                                                                    </div>
+                                                                    <div class="col-lg-2 col-6 mb-3">
+                                                                        <small class="text-muted">Location</small>
+                                                                        <div class="mb-0 fw-bold">Delhi</div>
+                                                                    </div>
+                                                                    <div class="col-lg-2 col-6 mb-3">
+                                                                        <small class="text-muted">Department</small>
+                                                                        <div class="mb-0 fw-bold">IT</div>
+                                                                    </div>
+                                                                    <div class="col-lg-2 col-6 mb-3">
+                                                                        <small class="text-muted">Designation</small>
+                                                                        <div class="mb-0 fw-bold">Sr. Developer</div>
+                                                                    </div>
+                                                                    <div class="col-lg-2 col-6 mb-3">
+                                                                        <small class="text-muted">Manager</small>
+                                                                        <div class="mb-0 fw-bold">Kunal Sharma</div>
+                                                                    </div>
+
+                                                                   
+                                                                   
+                                                                </div>
+                                                                <div class="row d-flex">
+                                                                    <div class="col-lg-2 col-6 mb-3">
+                                                                        <small class="text-muted">Joining Date</small>
+                                                                        <div class="mb-0 fw-bold">11 May 2020</div>
+                                                                    </div>
+                                                                    <div class="col-lg-2 col-6 mb-3">
+                                                                        <small class="text-muted">Confirmation Date</small>
+                                                                        <div class="mb-0 fw-bold">11 Aug, 2020</div>
+                                                                    </div>
+                                                                    <div class="col-lg-2 col-6 mb-3">
+                                                                        <small class="text-muted">Role</small>
+                                                                        <div class="mb-0 fw-bold">Member</div>
+                                                                    </div>
+                                                                    <div class="col-lg-2 col-6 mb-3">
+                                                                        <small class="text-muted">Status</small>
+                                                                        <div class="mb-0 fw-bold">Confirmed</div>
+                                                                    </div>
+
+                                                                    <div class="col-lg-2 col-6 mb-3">
+                                                                        <small class="text-muted">Work Email</small>
+                                                                        <div class="mb-0 fw-bold">
+                                                                            annu.sharma@minditsystems.com
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="col-lg-2 col-6 mb-3">
+                                                                        <small class="text-muted">Next Appraisal Date</small>
+                                                                        <div class="mb-0 fw-bold">11 Aug, 2024</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="previous_emp" role="tabpanel">
+                                        <div class="row-title justify-content-between mb-1 pb-2">
+                                            <h6 class="">Experience</h6>
+                                            <div>
+                                                <button class="btn btn-outline-primary btn-sm rounded" data-bs-toggle="offcanvas" data-bs-target="#prev_det"><i class="fa fa-plus"></i> Add</button>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="table-responsive">
+                                                    <table class="table align-middle mb-0 card-table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="sorting">Company</th>
+                                                                <th class="sorting">Designation</th>
+                                                                <th class="sorting">CTC</th>
+                                                                <th class="sorting">Period</th>
+                                                                <th class="sorting">Reporting Manager</th>
+                                                                <th class="sorting">Reason of Leaving</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>
+                                                                    <div class="d-flex align-items-center">
+                                                                        <div class="">
+                                                                            <div class="mb-0">Infosys</div>
+                                                                            <span class="text-muted">M 260, 2<sup>nd</sup> Floor, Modal Town, Delhi-110041 </span>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <span>Designer</span><br />
+                                                                    <span class="text-muted">Department: Web Designer</span>
+                                                                </td>
+                                                                <td>6.5 LPA</td>
+                                                                <td>
+                                                                    <span>Dec 2017 -Jun 2020</span><br />
+                                                                    <span class="badge bg-success">Permanent</span>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="d-flex justify-content-between">
+                                                                        <span>Govind</span>
+                                                                        <span class="text-secondary">Team Lead</span>
+                                                                    </div>
+
+                                                                    <div class="d-flex justify-content-between">
+                                                                        <span class="text-muted me-3">9874589687</span>
+                                                                        <span class="text-muted">govind@infosys.com</span>
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <div class="d-flex align-items-center">
+                                                                        <div class="">
+                                                                            <div class="mb-0">Wipro</div>
+                                                                            <span class="text-muted">K 30, 1<sup>st</sup> Floor, Green Park, Delhi-110016 </span>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <span>Designer</span><br />
+                                                                    <span class="text-muted">Department: Graphic Designer</span>
+                                                                </td>
+                                                                <td>5 LPA</td>
+                                                                <td>
+                                                                    <span>Aug 2016 -Aug 2017</span><br />
+                                                                    <span class="badge bg-success">Permanent</span>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="d-flex justify-content-between">
+                                                                        <span>Rajesh</span>
+                                                                        <span class="text-secondary">Team Lead</span>
+                                                                    </div>
+
+                                                                    <div class="d-flex justify-content-between">
+                                                                        <span class="text-muted me-3">9874589687</span>
+                                                                        <span class="text-muted">rajesh@infosys.com</span>
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    Lorem ipsum dolor amet consectetur elit.
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane" id="education_details">
+                                        <div class="row-title justify-content-between mb-1 pb-2">
+                                            <h6 class="">Education</h6>
+                                            <div>
+                                                <button class="btn btn-outline-primary rounded btn-sm" data-bs-toggle="offcanvas" data-bs-target="#educ_det"><i class="fa fa-plus"></i> Add</button>
+                                            </div>
+                                        </div>
+
+                                        <div class="row pb-2">
+                                            <div class="col-md-12">
+                                                <div class="table-responsive">
+                                                    <table class="table align-middle mb-0 card-table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="sorting">College/School</th>
+                                                                <th class="sorting">Duration</th>
+                                                                <th class="sorting">Type</th>
+                                                                <th class="sorting">Degree</th>
+                                                                <th class="sorting">Overall Score</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>
+                                                                    <div class="d-flex align-items-center">
+                                                                        <div class="">
+                                                                            <div class="mb-0">
+                                                                                Shaheed Sukhdev College of Business Studies
+                                                                            </div>
+                                                                            <span class="text-muted">Delhi University, Delhi</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    Aug 2015 - Aug 2018 <br />
+                                                                    <span class="badge bg-success">Completed</span>
+                                                                </td>
+                                                                <td>
+                                                                    <span>Regular full time</span><br />
+                                                                    <span class="text-muted">Roll no: 178968458</span>
+                                                                </td>
+                                                                <td>
+                                                                    <span>Graduation</span><br />
+                                                                    <span class="text-muted">Computer Science</span>
+                                                                </td>
+                                                                <td>6.5</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <div class="d-flex align-items-center">
+                                                                        <div class="">
+                                                                            <div class="mb-0">
+                                                                                Shaheed Sukhdev College of Business Studies
+                                                                            </div>
+                                                                            <span class="text-muted">Delhi University, Delhi</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    Aug 2018 - Aug 2020 <br />
+                                                                    <span class="badge bg-warning">Ongoing</span>
+                                                                </td>
+                                                                <td>
+                                                                    <span>Regular full time</span><br />
+                                                                    <span class="text-muted">Roll no: 178968458</span>
+                                                                </td>
+                                                                <td>
+                                                                    <span>Post Graduation</span><br />
+                                                                    <span class="text-muted">Computer Science</span>
+                                                                </td>
+                                                                <td>7.1</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="tab-pane fade" id="identity" role="tabpanel">
+                                        <div class="row">
+                                            <div class="col-lg-12 col-12">
+                                                <div class="row">
+                                                    <div class="doctor-detail order-1 order-md-0">
+                                                        <h6 class="d-flex justify-content-between align-items-center">
+                                                            Identity
+                                                        </h6>
+
+                                                        <div class="row">
+                                                            <div class="col-lg-9">
+                                                                <div class="row mt-2 d-flex">
+                                                                    <div class="col-lg-3 col-6 mb-3">
+                                                                        <small class="text-muted">Aadhaar Number</small>
+                                                                        <div class="mb-0 fw-bold">
+                                                                            8745965223654
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-3 col-6 mb-3">
+                                                                        <small class="text-muted">PAN Card Number</small>
+                                                                        <div class="mb-0 fw-bold">ADR485H45895</div>
+                                                                    </div>
+                                                                    <div class="col-lg-3 col-6 mb-3">
+                                                                        <small class="text-muted">Passport Number</small>
+                                                                        <div class="mb-0 fw-bold">5789642566</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="tab-pane fade" id="documents" role="tabpanel">
+                                        <div class="row-title justify-content-between mb-1 pb-2">
+                                            <h6 class="">Documents</h6>
+                                            <div>
+                                                <a href="#" class="btn btn-sm btn-outline-primary rounded" data-bs-toggle="offcanvas" data-bs-target="#add_document"><i class="fa fa-plus"></i> Add</a>
+                                            </div>
+                                        </div>
+                                        <div class="row g-3">
+                                            <div class="col-md-8">
+                                                <div class="card">
+                                                    <div class="card-body pt-2 pb-0">
+                                                        <div class="mb-3">
+                                                            <div class="table-responsive">
+                                                                <table class="table dataTable table-hover" id="documents">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>Document</th>
+                                                                            <th>Date</th>
+                                                                            <th>Status</th>
+                                                                            <th>Action</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr class="bg-light">
+                                                                            <td>PAN Card</td>
+                                                                            <td>11 Apr 2023</td>
+                                                                            <td>
+                                                                                <span class="badge bg-success">Approved</span>
+                                                                            </td>
+                                                                            <td></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Aadhaar Number</td>
+                                                                            <td>11 Apr 2023</td>
+                                                                            <td>
+                                                                                <span class="badge bg-success">Approved</span>
+                                                                            </td>
+                                                                            <td></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>10th certificate</td>
+                                                                            <td class="text-muted"></td>
+                                                                            <td>
+                                                                                <span class="badge bg-danger">Pending</span>
+                                                                            </td>
+                                                                            <td>
+                                                                                <a href="#" title="Upload"><i class="fa fa-upload text-secondary ms-2"></i></a>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>12th certificate</td>
+                                                                            <td class="text-muted"></td>
+                                                                            <td>
+                                                                                <span class="badge bg-danger">Pending</span>
+                                                                            </td>
+                                                                            <td>
+                                                                                <a href="#" title="Upload"><i class="fa fa-upload text-secondary ms-2"></i></a>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Degree certificate</td>
+                                                                            <td class="text-muted">11 Apr 2023</td>
+                                                                            <td>
+                                                                                <span class="badge bg-success">Approved</span>
+                                                                            </td>
+                                                                            <td></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                Previous employer relieving letter
+                                                                            </td>
+                                                                            <td class="text-muted">11 Apr 2023</td>
+                                                                            <td>
+                                                                                <span class="badge bg-success">Approved</span>
+                                                                            </td>
+                                                                            <td></td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="card mb-3">
+                                                    <div class="card-header pb-0 mb-0">
+                                                        <h6 class="card-title mb-0">Preview</h6>
+                                                        <div class="dropdown morphing scale-left">
+                                                            <a href="#" class="card-fullscreen" data-bs-toggle="tooltip" title="" data-bs-original-title="Card Full-Screen" aria-label="Card Full-Screen">
+                                                                <i class="icon-size-fullscreen"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card card-body mb-0 p-4 text-center border-0">
+                                                        <img src="../assets/images/PAN-Card.jpg" alt="PAN Card" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="offcanvas offcanvas-end" tabindex="-1" id="edit_basic">
+                                <div class="offcanvas-header">
+                                    <h5 class="offcanvas-title">Change Profile Photo</h5>
+                                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                </div>
+                                <div class="offcanvas-body">
+                                    <form class="row g-3">
+                                        <div class="image-input avatar xxl rounded-4" style="background-image: url(../assets/images/lg/avatar5.jpg);">
+                                            <div class="avatar-wrapper rounded-4"></div>
+                                            <div class="file-input">
+                                                <input type="file" class="form-control" name="file-input" id="file-input" />
+                                                <label for="file-input" class="fa fa-pencil shadow"></label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 mt-5">
+                                            <button type="submit" class="btn btn-primary text-light rounded">
+                                                Update
+                                            </button>
+                                            <button type="button" class="btn btn-outline-secondary rounded" data-bs-dismiss="offcanvas">
+                                                Cancel
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="offcanvas offcanvas-end" tabindex="-1" id="add_contact">
+                                <div class="offcanvas-header">
+                                    <h5 class="offcanvas-title">Add contact details</h5>
+                                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                </div>
+                                <div class="offcanvas-body">
+                                    <form class="row g-3">
+                                        <div class="col-md-6">
+                                            <label class="form-label">Full Name <sup class="mandatory">*</sup></label>
+                                            <input type="text" class="form-control rounded" required />
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Type <sup class="mandatory">*</sup></label>
+                                            <select name="" id="" class="form-control rounded">
+                                                <option value="">...</option>
+                                                <option value="">Self</option>
+                                                <option value="">Emergency</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Phone <sup class="mandatory">*</sup></label>
+                                            <input type="number" class="form-control rounded" required />
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Email <sup class="mandatory">*</sup></label>
+                                            <input type="email" class="form-control rounded" required />
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-12 mt-4">
+                                            <div class="card bg-light_1">
+                                                <div class="card-header py-3 bg-light_1">
+                                                    <h6 class="card-title mb-0">Current Address</h6>
+                                                </div>
+                                                <div class="row g-3 card-body d-flex pt-0">
+                                                    <div class="col-lg-12 col-md-12 col-12">
+                                                        <label class="form-label">Address Line 1</label>
+                                                        <textarea class="form-control rounded" rows="1" cols="30" required></textarea>
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-6">
+                                                        <label class="form-label">City</label>
+                                                        <select class="form-select array-select form-control rounded" aria-label="example">
+                                                            <option selected>...</option>
+                                                            <option>Option 1</option>
+                                                            <option>Option 2</option>
+                                                            <option>Option 3</option>
+                                                            <option>Option 4</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-6">
+                                                        <label class="form-label">State</label>
+                                                        <select class="form-select array-select form-control rounded" aria-label="example">
+                                                            <option selected>...</option>
+                                                            <option>Option 1</option>
+                                                            <option>Option 2</option>
+                                                            <option>Option 3</option>
+                                                            <option>Option 4</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-6">
+                                                        <label class="form-label">Zip</label>
+                                                        <input type="hidden" class="form-control" />
+                                                        <fieldset class="position-relative">
+                                                            <input type="number" class="form-control rounded" />
+                                                        </fieldset>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-12 mt-4">
+                                            <div class="card bg-light_1">
+                                                <div class="card-header py-3 bg-light_1">
+                                                    <h6 class="card-title mb-0">Permanent Address</h6>
+                                                    <div class="dropdown morphing scale-left">
+                                                        <div class="form-check mb-0" style="height: 1px !important; min-height: auto !important;">
+                                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                                            <label class="form-check-label" for="flexCheckDefault">
+                                                                Same as present
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row g-3 card-body d-flex pt-0">
+                                                    <div class="col-lg-12 col-md-12 col-12">
+                                                        <label class="form-label">Address Line 1</label>
+                                                        <textarea class="form-control rounded" rows="1" cols="30" required></textarea>
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-6">
+                                                        <label class="form-label">City</label>
+                                                        <select class="form-select array-select form-control rounded" aria-label="example">
+                                                            <option selected>...</option>
+                                                            <option>Option 1</option>
+                                                            <option>Option 2</option>
+                                                            <option>Option 3</option>
+                                                            <option>Option 4</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-6">
+                                                        <label class="form-label">State</label>
+                                                        <select class="form-select array-select form-control rounded" aria-label="example">
+                                                            <option selected>...</option>
+                                                            <option>Option 1</option>
+                                                            <option>Option 2</option>
+                                                            <option>Option 3</option>
+                                                            <option>Option 4</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-6">
+                                                        <label class="form-label">Zip</label>
+                                                        <input type="hidden" class="form-control" />
+                                                        <fieldset class="position-relative">
+                                                            <input type="number" class="form-control rounded" />
+                                                        </fieldset>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 mt-5">
+                                            <button type="submit" class="btn btn-primary text-light rounded">
+                                                Submit
+                                            </button>
+                                            <button type="button" class="btn btn-outline-secondary rounded" data-bs-dismiss="offcanvas">
+                                                Cancel
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="offcanvas offcanvas-end" tabindex="-1" id="educ_det">
+                                <div class="offcanvas-header">
+                                    <h5 class="offcanvas-title">Add education details</h5>
+                                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                </div>
+                                <div class="offcanvas-body">
+                                    <form class="row g-3">
+                                        <div class="col-md-12">
+                                            <label class="form-label">University/ Board <sup class="mandatory">*</sup></label>
+                                            <input type="text" class="form-control rounded" required />
+                                        </div>
+                                        <div class="col-md-12">
+                                            <label class="form-label">College/ School <sup class="mandatory">*</sup></label>
+                                            <input type="text" class="form-control rounded" required />
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <label class="form-label">City <sup class="mandatory">*</sup></label>
+                                            <input type="text" class="form-control rounded" required />
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">From <sup class="mandatory">*</sup></label>
+                                            <input type="text" class="form-control borad datepicker rounded" required />
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">To </label>
+                                            <input type="text" class="form-control borad datepicker rounded" />
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Status <sup class="mandatory">*</sup></label>
+                                            <select name="" id="" class="form-select rounded" required>
+                                                <option value="">...</option>
+                                                <option value="">Completed</option>
+                                                <option value="">Ongoing</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Type <sup class="mandatory">*</sup></label>
+                                            <select name="" id="" class="form-select rounded" required>
+                                                <option value="">...</option>
+                                                <option value="">Regular full time</option>
+                                                <option value="">Part time</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Roll No/ Enrollment No. </label>
+                                            <input type="text" class="form-control rounded" />
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Degree <sup class="mandatory">*</sup> </label>
+                                            <select name="" id="" class="form-select rounded" required>
+                                                <option value="">...</option>
+                                                <option value="">Diploma</option>
+                                                <option value="">Graduation</option>
+                                                <option value="">Post graduation</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <label class="form-label">Major subject <sup class="mandatory">*</sup></label>
+                                            <input type="text" class="form-control rounded" required />
+                                        </div>
+                                        <div class="col-md-12">
+                                            <label class="form-label">Overall Score <small>(Percentage or CGPA)</small></label>
+                                            <input type="text" class="form-control rounded" />
+                                        </div>
+                                        <div class="col-12 mt-5">
+                                            <button type="submit" class="btn btn-primary text-light rounded">
+                                                Submit
+                                            </button>
+                                            <button type="submit" class="btn bg-outline-secondary rounded me-2" data-bs-dismiss="offcanvas" data-bs-target="#educ_det">
+                                                Add More
+                                            </button>
+                                            <button type="button" class="btn btn-outline-secondary rounded" data-bs-dismiss="offcanvas">
+                                                Cancel
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="offcanvas offcanvas-end" tabindex="-1" id="prev_det">
+                                <div class="offcanvas-header">
+                                    <h5 class="offcanvas-title">Add previous employment</h5>
+                                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                </div>
+                                <div class="offcanvas-body">
+                                    <form class="row g-3">
+                                        <div class="col-md-12">
+                                            <label class="form-label">Name of the company <sup class="mandatory">*</sup></label>
+                                            <input type="text" class="form-control rounded" required />
+                                        </div>
+                                        <div class="col-md-12">
+                                            <label class="form-label">Address</label>
+                                            <textarea rows="1" class="form-control rounded"></textarea>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">From <sup class="mandatory">*</sup></label>
+                                            <input type="text" class="form-control borad datepicker rounded" required />
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">To <sup class="mandatory">*</sup></label>
+                                            <input type="text" class="form-control borad datepicker rounded" required />
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Department</label>
+                                            <select class="form-select rounded">
+                                                <option>...</option>
+                                                <option>IT</option>
+                                                <option>Management</option>
+                                                <option>Designing</option>
+                                                <option>Human Resource</option>
+                                                <option>Marketing</option>
+                                                <option>Accounts</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Last position held <sup class="mandatory">*</sup></label>
+                                            <input type="text" class="form-control rounded" required />
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Employement Type <sup class="mandatory">*</sup></label>
+                                            <select class="form-select rounded" required>
+                                                <option>...</option>
+                                                <option>Permanent</option>
+                                                <option>Temporary</option>
+                                                <option>Contractual</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Last remuneration</label>
+                                            <input type="text" class="form-control rounded" />
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Reporting Manager</label>
+                                            <input type="text" class="form-control rounded" />
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Phone</label>
+                                            <input type="number" class="form-control rounded" />
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Email</label>
+                                            <input type="email" class="form-control rounded" />
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Designation</label>
+                                            <select class="form-select borad">
+                                                <option>...</option>
+                                                <option>Graphic Designer</option>
+                                                <option>Team Lead</option>
+                                                <option>Frontend Developer</option>
+                                                <option>Associate Software Traniee</option>
+                                                <option>Software Developer</option>
+                                                <option>Human Resource</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <label class="form-label">Reason of Leaving</label>
+                                            <textarea type="text" class="form-control rounded"></textarea>
+                                        </div>
+                                        <div class="col-12 mt-5">
+                                            <button type="submit" class="btn btn-primary text-light rounded">
+                                                Submit
+                                            </button>
+                                            <button type="submit" class="btn bg-outline-secondary rounded me-2">
+                                                Add More
+                                            </button>
+                                            <button type="button" class="btn btn-outline-secondary rounded" data-bs-dismiss="offcanvas">
+                                                Cancel
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <div class="offcanvas offcanvas-end" tabindex="-1" id="add_document">
+                                <div class="offcanvas-header">
+                                    <h5 class="offcanvas-title">Add document</h5>
+                                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                </div>
+                                <div class="offcanvas-body">
+                                    <form class="row g-3">
+                                        <div class="col-md-12">
+                                            <label class="form-label">Document Name <sup class="mandatory">*</sup></label>
+                                            <select class="form-select array-select form-control rounded" aria-label="example">
+                                                <option selected>...</option>
+                                                <option>Aadhaar Card</option>
+                                                <option>PAN Card</option>
+                                                <option>Passport</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <label class="form-label">Upload <sup class="mandatory">*</sup></label>
+                                            <input type="file" class="dropify" />
+                                        </div>
+                                        <div class="col-12 mt-5">
+                                            <button type="submit" class="btn btn-primary text-light rounded">
+                                                Submit
+                                            </button>
+                                            <button type="button" class="btn btn-outline-secondary rounded" data-bs-dismiss="offcanvas">
+                                                Cancel
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div w3-include-html="../include/footer.html"></div>
+        </div>
+
+        <script src="../assets/bundles/libscripts.bundle.js"></script>
+        <script src="../assets/bundles/dataTables.bundle.js"></script>
+        <script src="../include/include.js"></script>
+        <script src="../assets/js/custom.js"></script>
+        <script src="../assets/bundles/dropify.bundle.js"></script>
+        <script src="../assets/bundles/bootstrapdatepicker.bundle.js"></script>
+        <script src="../include/include.js"></script>
+        <script>
+            $(".datepicker").datepicker({});
+         
+
+            // project data table
+            $(".myDataTable").addClass("nowrap").dataTable({
+                responsive: false,
+                searching: false,
+                paging: false,
+                ordering: true,
+                info: false,
+            });
+
+           
+
+            $(function () {
+                $(".dropify").dropify();
+                var drEvent = $("#dropify-event").dropify();
+                drEvent.on("dropify.beforeClear", function (event, element) {
+                    return confirm('Do you really want to delete "' + element.file.name + '" ?');
+                });
+                drEvent.on("dropify.afterClear", function (event, element) {
+                    alert("File deleted");
+                });
+                $(".dropify-fr").dropify({
+                    messages: {
+                        default: "Glissez-dÃ©posez un fichier ici ou cliquez",
+                        replace: "Glissez-dÃ©posez un fichier ou cliquez pour remplacer",
+                        remove: "Supprimer",
+                        error: "DÃ©solÃ©, le fichier trop volumineux",
+                    },
+                });
+            });
+        </script>
+        <script></script>
+
+        <script>
+            includeHTML();
+        </script>
+    </body>
+</html>
