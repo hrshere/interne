@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html class="no-js" lang="en">
     <head>
@@ -7,14 +8,14 @@
         <meta name="description" content="" />
         <meta name="keyword" content="" />
         <title>:: Mind IT :: Add Members</title>
-        <link rel="icon" href="../assets/images/logo/favicon.png" type="image/x-icon" />
-        <link rel="stylesheet" href="../assets/css/dataTables.min.css" />
-        <link rel="stylesheet" href="../assets/css/luno.style.min.css" />
-        <link rel="stylesheet" href="../assets/css/bootstrapdatepicker.min.css" />
-        <link rel="stylesheet" href="../assets/css/custom.css" />
-        <link rel="stylesheet" href="../assets/css/jquerysteps.min.css" />
-        <link rel="stylesheet" href="../assets/css/dropify.min.css" />
-        <link rel="stylesheet" href="../assets/css/select2.min.css">
+        <link rel="icon" href="{% static 'interne/assets/images/logo/favicon.png' %}" type="image/x-icon" />
+        <link rel="stylesheet" href="{% static 'interne/assets/css/dataTables.min.css' %}" />
+        <link rel="stylesheet" href="{% static 'interne/assets/css/luno.style.min.css' %}" />
+        <link rel="stylesheet" href="{% static 'interne/assets/css/bootstrapdatepicker.min.css' %}" />
+        <link rel="stylesheet" href="{% static 'interne/assets/css/custom.css' %}" />
+        <link rel="stylesheet" href="{% static 'interne/assets/css/jquerysteps.min.css' %}" />
+        <link rel="stylesheet" href="{% static 'interne/assets/css/dropify.min.css' %}" />
+        <link rel="stylesheet" href="{% static 'interne/assets/css/select2.min.css' %}">
     </head>
 
     <body class="layout-2 option2" data-luno="theme-blue">
@@ -79,41 +80,42 @@
                                         <h6 class="card-title mb-0">Basic</h6>
                                     </div>
                                     <div class="card-body pt-0">
-                                        <form class="row g-3">
+                                        <form class="row g-3" method = "post">
+                                        {% csrf_token %}
                                             <div class="col-lg-3 col-md-6 col-sm-6">
                                                 <label class="form-label">First Name <sup class="mandatory">*</sup></label>
                                                 <fieldset class="position-relative">
-                                                    <input type="text" class="form-control rounded" required />
+                                                    <input type="text" class="form-control rounded" name = "name" id = "name" required />
                                                 </fieldset>
                                             </div>
                                             <div class="col-lg-3 col-md-6 col-sm-6">
                                                 <label class="form-label">Last Name <sup class="mandatory">*</sup></label>
                                                 <fieldset class="position-relative">
-                                                    <input type="text" class="form-control rounded" required />
+                                                    <input type="text" class="form-control rounded"  />
                                                 </fieldset>
                                             </div>
                                             <div class="col-lg-3 col-md-6 col-sm-6">
                                                 <label class="form-label">Mobile <sup class="mandatory">*</sup></label>
                                                 <fieldset class="position-relative">
-                                                    <input type="number" class="form-control rounded" required />
+                                                    <input type="number" name="phone" id="phone" class="form-control rounded" required />
                                                 </fieldset>
                                             </div>
                                             <div class="col-lg-3 col-md-6 col-sm-6">
                                                 <label class="form-label">Email <sup class="mandatory">*</sup></label>
                                                 <fieldset class="position-relative">
-                                                    <input type="email" class="form-control rounded" required />
+                                                    <input type="email" name="email" id="email" class="form-control rounded" required />
                                                 </fieldset>
                                             </div>
                                             <div class="col-lg-3 col-md-6 col-sm-6">
                                                 <label class="form-label">Date of Birth <sup class="mandatory">*</sup></label>
                                                 <fieldset class="position-relative">
-                                                    <input type="text" class="form-control borad datepicker rounded" required />
+                                                    <input type="text" class="form-control borad datepicker rounded"  />
                                                 </fieldset>
                                             </div>
                                             <div class="col-lg-3 col-md-6 col-sm-6">
                                                 <label class="form-label">Gender <sup class="mandatory">*</sup></label>
                                                 <fieldset class="position-relative">
-                                                    <select name="" id="" class="form-select rounded" required>
+                                                    <select name="" id="" class="form-select rounded" >
                                                         <option value="">...</option>
                                                         <option value="">Male</option>
                                                         <option value="">Female</option>
@@ -124,19 +126,19 @@
                                             <div class="col-lg-3 col-md-6 col-sm-6">
                                                 <label class="form-label">Father's Name <sup class="mandatory">*</sup></label>
                                                 <fieldset class="position-relative">
-                                                    <input type="text" class="form-control rounded" required />
+                                                    <input type="text" name = "father_name" id="father_name" class="form-control rounded" required />
                                                 </fieldset>
                                             </div>
                                             <div class="col-lg-3 col-md-6 col-sm-6">
                                                 <label class="form-label">Mother's Name </label>
                                                 <fieldset class="position-relative">
-                                                    <input type="text" class="form-control rounded" required />
+                                                    <input type="text" class="form-control rounded"  />
                                                 </fieldset>
                                             </div>
                                             <div class="col-lg-3 col-md-6 col-sm-6">
                                                 <label class="form-label">Category <sup class="mandatory">*</sup></label>
                                                 <fieldset class="position-relative">
-                                                    <select name="" id="" class="form-select rounded" required>
+                                                    <select name="" id="" class="form-select rounded" >
                                                         <option value="">...</option>
                                                         <option value="">General</option>
                                                         <option value="">OBC</option>
@@ -176,14 +178,14 @@
                                             <div class="col-lg-3 col-md-6 col-sm-6">
                                                 <label class="form-label">Marital Status <sup class="mandatory">*</sup></label>
                                                 <fieldset class="position-relative">
-                                                    <select name="" id="" class="form-select rounded" required>
+                                                    <select name="" id="" class="form-select rounded" >
                                                         <option value="">...</option>
                                                         <option value="">Married</option>
                                                         <option value="">Single</option>
                                                     </select>
                                                 </fieldset>
                                             </div>
-                                        </form>
+                                       
                                     </div>
                                 </div>
                             </div>
@@ -206,10 +208,13 @@
                             </div>
                         </div>
                         <div class="col-lg-2 col-md-9 pt-2 mt-4">
-                            <button class="btn btn-sm btn-secondary mx-2 rounded ms-0">Submit</button>
+                            <button class="btn btn-sm btn-secondary mx-2 rounded ms-0" type="submit">Submit</button>
                             <button class="btn btn-sm btn-outline-secondary rounded" type="button"> Cancel</button>
                         </div>
-
+                        {% if error_message %}
+                        <p>{{error_message}}<p>
+                        {% endif %}
+ </form>
 
                       
                     </div>
