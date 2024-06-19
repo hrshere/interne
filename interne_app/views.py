@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404
+from django.urls import reverse
 
 # Create your views here.
 from django.http import HttpResponse, Http404, HttpResponseRedirect
@@ -29,8 +30,10 @@ def index(request):
                     return render(request, "interne_app/employee/profile.html",context={"userprofile":userprofile})
                 else:
                     adminprofile = get_object_or_404(admin_profile,admin_email=user_id)
-                    employee_list = employee_profile.objects.all()
-                    return render(request,"interne_app/admin/members.html",context={'adminprofile':adminprofile, 'employee_list':employee_list})
+                    # employee_list = employee_profile.objects.all()
+                    # return render(request,"interne_app/admin/members.html",context={'adminprofile':adminprofile, 'employee_list':employee_list})
+                    # return member(request)
+                    return HttpResponseRedirect(reverse("member",))
             else:
                 return render(template_name='interne_app/login.html',request=request,context={"error_message":'bad_credentials'})
         else:
@@ -63,20 +66,43 @@ def add_member(request):
             print(member_details.full_name,"exists now in db")
             set_details_for_login = employee_login(user_id = email, password = "@1Q2w3e4r")
             set_details_for_login.save()
-            employee_list = employee_profile.objects.all()
-            return render(request=request, template_name="interne_app/admin/members.html",context={"employee_list":employee_list})
-            return render(request=request,template_name='interne_app/admin/add_member.html',context={"name":member_details.full_name,"email":member_details.user_email,"phone":member_details.user_phone,"father_name":member_details.father_name})
+            return HttpResponseRedirect(reverse("member",))
+            #return render(request=request, template_name="interne_app/admin/members.html",context={"employee_list":employee_list})
+            # return render(request=request,template_name='interne_app/admin/add_member.html',context={"name":member_details.full_name,"email":member_details.user_email,"phone":member_details.user_phone,"father_name":member_details.father_name})
         else:
             return render(request= request,template_name='interne_app/admin/add_member.html', context={"error_message":"details could not be submitted"})
     else:
         return render(request,'interne_app/admin/add_member.html')
     
-def search(request):
+# def search(request):
     if request.method == "POST":
         name = request.POST.get('name')
         print(name,"from frontend")
         employee_present = employee_profile.objects.filter(full_name = name).exists()
         if employee_present:
-            searched_employee = get_object_or_404(employee_profile,full_name=name)
+            searched_employee = employee_profile.objects.get(full_name=name)
             return render(request=request, template_name="interne_app/admin/members.html",context={"employee_list":searched_employee})
 
+# views.py
+
+
+def search(request):
+    if request.method == "POST":
+        name = request.POST.get('name')
+        # Query all employee profiles if name is not provided
+        if name:
+            employee_list = employee_profile.objects.filter(full_name__icontains=name)
+        else:
+            # this calls member view, can also pass param optionally
+            return HttpResponseRedirect(reverse("member",))
+
+        return render(request, 'interne_app/admin/members.html', {'employee_list': employee_list})
+
+    # For GET requests or initial page load, return an empty template or handle accordingly
+    return render(request, 'interne_app/admin/members.html', {'employee_list': []})
+
+#todo - make a member view to be used inside search and add member and index
+def member(request):
+    employee_list = employee_profile.objects.all()
+    
+    return render(request, 'interne_app/admin/members.html', {'employee_list': employee_list})
