@@ -112,7 +112,15 @@
                                     <label for="TextInput" class="form-label mb-1">Member</label>
                                     <input type="text" class="form-control rounded" placeholder="" name = "name" id = "name">
                                 </div>
-                                <div class="col-lg-2 col-md-6 col-6 py-1">
+                                                                <div class="col-lg-2 col-md-6 col-6 py-1">
+                                    <label for="TextInput" class="form-label mb-1">Email</label>
+                                    <input type="text" class="form-control rounded" placeholder="" name = "email" id = "email">
+                                </div>
+                                                                <div class="col-lg-2 col-md-6 col-6 py-1">
+                                    <label for="TextInput" class="form-label mb-1">Phone</label>
+                                    <input type="text" class="form-control rounded" placeholder="" name = "phone" id = "phone">
+                                </div>
+                                {% comment %} <div class="col-lg-2 col-md-6 col-6 py-1">
                                     <label for="TextInput" class="form-label mb-1">Department</label>
                                     <select class="form-select borad">
                                         <option>...</option>
@@ -123,16 +131,16 @@
                                         <option>Marketing</option>
                                         <option>Accounts</option>
                                     </select>
-                                </div>
-                                <div class="col-lg-2 col-md-6 col-6 py-1">
+                                </div> {% endcomment %}
+                                {% comment %} <div class="col-lg-2 col-md-6 col-6 py-1">
                                     <label for="TextInput" class="form-label mb-1">Location</label>
                                     <select class="form-select borad">
                                         <option>...</option>
                                         <option>Delhi</option>
                                         <option>Kolkata</option>
                                     </select>
-                                </div>
-                                <div class="col-lg-2 col-md-6 col-6 py-1">
+                                </div> {% endcomment %}
+                                {% comment %} <div class="col-lg-2 col-md-6 col-6 py-1">
                                     <label for="TextInput" class="form-label mb-1">Designation</label>
                                     <select class="form-select borad">
                                         <option>...</option>
@@ -144,7 +152,7 @@
                                         <option>Human Resource</option>
                                     </select>
 
-                                </div>
+                                </div> {% endcomment %}
                                 
 
                                 <div class="col-lg-2 col-md-6 col-6 py-1">
@@ -208,8 +216,8 @@
                                         <thead>
                                             <tr>
                                                 <th>Member</th>
-                                                <th>Department</th>
-                                                <th>Location</th>
+                                                <th>Email</th>
+                                                <th>Phone</th>
                                                 <th>Designation</th>
                                                 <th>DOJ</th>
                                                 <th>Confirmation</th>
@@ -236,8 +244,8 @@
                                                     </div>
 
                                                 </td>
-                                                <td>Designing</td>
-                                                <td>Delhi</td>
+                                                <td>{{employee.user_email}}</td>
+                                                <td>{{employee.user_phone}}</td>
                                                 <td>Associate Designer</td>
                                                 <td>02 Sep 2023</td>
                                                 <td></td>

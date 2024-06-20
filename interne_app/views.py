@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
+from .forms import LoginForm
 
 # Create your views here.
 from django.http import HttpResponse, Http404, HttpResponseRedirect
@@ -7,41 +8,47 @@ from django.template import loader
 from .models import employee_login, employee_profile, admin_profile
 
 
-def index(request):
-    if request.method == 'POST':
-    # try:
-        user_id = request.POST.get('user_id')
-        password = request.POST.get('password')
-        print(user_id,password)
-    # Check if a user with the given user_id exists
-        user_exists = employee_login.objects.filter(user_id=user_id).exists()
+# views.py
+from django.shortcuts import render, HttpResponseRedirect, get_object_or_404
+from django.urls import reverse
+from .forms import LoginForm
+from .models import employee_login, employee_profile, admin_profile
 
-    # Print the result to the console
-        if user_exists:
-            print("User exists")
-            user_authenticated = employee_login.objects.filter(password=password).exists()
-            if user_authenticated:
-                print('user_authentication:',user_authenticated)
-                role_id = employee_login.objects.get(user_id=user_id)
-                print("role_id",role_id.roleid)
-                if(role_id.roleid == 2):
-                    userprofile = get_object_or_404(employee_profile,user_email=user_id)
-                    print(userprofile)
-                    return render(request, "interne_app/employee/profile.html",context={"userprofile":userprofile})
+def index(request):
+    form = LoginForm()  # Initialize form instance
+
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            user_id = form.cleaned_data['user_id']
+            password = form.cleaned_data['password']
+            print(user_id, password)
+
+            # Check if a user with the given user_id exists
+            user_exists = employee_login.objects.filter(user_id=user_id).exists()
+
+            if user_exists:
+                print("User exists")
+                user_authenticated = employee_login.objects.filter(user_id=user_id, password=password).exists()
+                if user_authenticated:
+                    print('user_authentication:', user_authenticated)
+                    role_id = employee_login.objects.get(user_id=user_id)
+                    print("role_id", role_id.roleid)
+                    
+                    if role_id.roleid == 2:
+                        userprofile = get_object_or_404(employee_profile, user_email=user_id)
+                        return render(request, "interne_app/employee/profile.html", context={"userprofile": userprofile})
+                    else:
+                        adminprofile = get_object_or_404(admin_profile, admin_email=user_id)
+                        return HttpResponseRedirect(reverse("member"))
                 else:
-                    adminprofile = get_object_or_404(admin_profile,admin_email=user_id)
-                    # employee_list = employee_profile.objects.all()
-                    # return render(request,"interne_app/admin/members.html",context={'adminprofile':adminprofile, 'employee_list':employee_list})
-                    # return member(request)
-                    return HttpResponseRedirect(reverse("member",))
+                    form.add_error('password', 'Incorrect password')
             else:
-                return render(template_name='interne_app/login.html',request=request,context={"error_message":'bad_credentials'})
-        else:
-            print("User does not exist")
-            return render(template_name='interne_app/login.html',request=request,context={"error_message":'user does not exist'})
-    else:
-        return render(request=request,template_name='interne_app/login.html')
-  
+                form.add_error('user_id', 'User does not exist')
+    
+    # If GET request or invalid form submission, render login page with form
+    return render(request, 'interne_app/login.html', {'form': form})
+
 
 def profile(request, employee_id):
     userprofile = get_object_or_404(employee_profile,employee_id)
@@ -89,9 +96,12 @@ def add_member(request):
 def search(request):
     if request.method == "POST":
         name = request.POST.get('name')
+        email = request.POST.get('email')
+        phone = request.POST.get('phone')
+        print(email,phone,name)
         # Query all employee profiles if name is not provided
         if name:
-            employee_list = employee_profile.objects.filter(full_name__icontains=name)
+            employee_list = employee_profile.objects.filter(full_name__icontains=name,user_email__icontains=email,user_phone__icontains=phone)
         else:
             # this calls member view, can also pass param optionally
             return HttpResponseRedirect(reverse("member",))
