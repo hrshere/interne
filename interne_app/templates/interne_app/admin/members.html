@@ -89,7 +89,7 @@
 
             </div>
         </div>
-<form method = "post" action="{% url 'search' %}">
+<form method = "get" action="{% url 'search' %}">
 {% csrf_token %}
         <div class="page-body px-xl-4 px-sm-2 px-0 py-lg-2">
             <div class="container-fluid">
@@ -110,7 +110,7 @@
                                 </div>
                                 <div class="col-lg-2 col-md-6 col-6 py-1">
                                     <label for="TextInput" class="form-label mb-1">Member</label>
-                                    <input type="text" class="form-control rounded" placeholder="" name = "name" id = "name">
+                                    <input type="text" class="form-control rounded" placeholder="" name = "name" id = "name" value="{{ request.GET.name }}">
                                 </div>
                                                                 <div class="col-lg-2 col-md-6 col-6 py-1">
                                     <label for="TextInput" class="form-label mb-1">Email</label>
@@ -236,7 +236,7 @@
                                                             class="rounded-circle avatar" alt="">
                                                         <a href="candidate_profile.html">
                                                             <div class="ms-2">
-                                                                <div class="mb-0">{{employee.full_name}}</div>
+                                                                <div class="mb-0">{{employee.first_name}} {{employee.last_name}}</div>
                                                                 <span class="text-muted">Mgr: Aman
                                                                     Kumar</span>
                                                             </div>

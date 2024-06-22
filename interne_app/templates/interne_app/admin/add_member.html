@@ -43,8 +43,8 @@
                             </button>
 
                             <a href="#" class="brand-icon d-flex align-items-center mx-2 mx-sm-3 text-primary">
-                                <img src="../assets/images/logo/logo.png" alt="Mind IT Interne" class="dark-logo" style="height: 40px;">
-                                <img src="../assets/images/logo/logo-white.png" alt="Mind IT Interne" class="white-logo" style="height: 40px;">
+                                <img src="{% static 'interne/assets/images/logo/logo.png' %}" alt="Mind IT Interne" class="dark-logo" style="height: 40px;">
+                                <img src="{% static 'interne/assets/images/logo/logo-white.png' %}" alt="Mind IT Interne" class="white-logo" style="height: 40px;">
                             </a>
                         </div>
                         <div class="header-left flex-grow-1 d-none d-md-block">
@@ -85,13 +85,13 @@
                                             <div class="col-lg-3 col-md-6 col-sm-6">
                                                 <label class="form-label">First Name <sup class="mandatory">*</sup></label>
                                                 <fieldset class="position-relative">
-                                                    <input type="text" class="form-control rounded" name = "name" id = "name" required />
+                                                    <input type="text" class="form-control rounded" name = "fname" id = "fname" required />
                                                 </fieldset>
                                             </div>
                                             <div class="col-lg-3 col-md-6 col-sm-6">
                                                 <label class="form-label">Last Name <sup class="mandatory">*</sup></label>
                                                 <fieldset class="position-relative">
-                                                    <input type="text" class="form-control rounded"  />
+                                                    <input type="text" class="form-control rounded"  id = "lname" name = "lname" required/>
                                                 </fieldset>
                                             </div>
                                             <div class="col-lg-3 col-md-6 col-sm-6">

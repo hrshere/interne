@@ -17,10 +17,12 @@ class employee_profile(models.Model):
     GENDER_CHOICES = [
         ('M', 'Male'),
         ('F', 'Female'),
-        ('O', 'Other'),
+        ('O', 'Others'),
     ]
     user_email = models.EmailField(unique=True)
-    full_name = models.CharField(max_length=20)
+    # full_name = models.CharField(max_length=20)
+    first_name = models.CharField(max_length=20)
+    last_name = models.CharField(max_length=20)
     user_phone = models.CharField(max_length=10,unique=True)
     father_name = models.CharField(max_length=20)
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES, default='M')
@@ -30,4 +32,12 @@ class admin_profile(models.Model):
     admin_email = models.EmailField(unique=True)
     admin_name = models.CharField(max_length=20)
 
+class Gender(models.Model):
+     GENDER_CHOICES = [
+        ('M', 'Male'),
+        ('F', 'Female'),
+        ('O', 'Others'),
+    ]
+     value = models.CharField(max_length=1,choices=GENDER_CHOICES,default='M')
+     
     
