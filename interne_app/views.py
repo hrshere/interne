@@ -1,9 +1,11 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
-from .forms import LoginForm
+from .forms import LoginForm, AddMemberForm
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from .models import employee_login, employee_profile, admin_profile
+from django.contrib import messages
+from django.db import IntegrityError
 
 
 def index(request):
@@ -23,18 +25,18 @@ def index(request):
                 print("User exists")
                 user_authenticated = employee_login.objects.filter(user_id=user_id, password=password).exists()
                 if user_authenticated:
-                    user = employee_profile.objects.get(user_email=user_id)
                     print('user_authentication:', user_authenticated)
                     role_id = employee_login.objects.get(user_id=user_id)
                     print("role_id", role_id.roleid)
                     
                     if role_id.roleid == 2:
+                        user = employee_profile.objects.get(user_email=user_id)
                         # userprofile = get_object_or_404(employee_profile, user_email=user_id)
                         # return render(request, "interne_app/employee/profile.html", context={"userprofile": userprofile})
                         # return profile(request=request,employee_id=user_id)
                         return redirect("profile",employee_id=user.pk)
                     else:
-                        adminprofile = get_object_or_404(admin_profile, admin_email=user_id)
+                        # adminprofile = get_object_or_404(admin_profile, admin_email=user_id)
                         return HttpResponseRedirect(reverse("member"))
                 else:
                     form.add_error('password', 'Incorrect password')
@@ -55,28 +57,49 @@ def profile(request, employee_id):
 
 def add_member(request):
     if request.method == 'POST':
-        print(request.POST.get('name'),request.POST.get('father_name'),request.POST.get('email'),request.POST.get('phone'))
-        fname = request.POST.get('fname')
-        lname = request.POST.get('lname')
-        father_name = request.POST.get('father_name')
-        email = request.POST.get('email')
-        phone = request.POST.get('phone')
-        member = employee_profile(father_name=father_name,user_email= email, user_phone= phone,first_name = fname, last_name=lname)
-        member.save()
-        member_exists = employee_profile.objects.filter(user_email=email).exists()
-        if member_exists:
-            member_details = get_object_or_404(employee_profile,user_email=email)
-            print(member_details.first_name,"exists now in db")
-            #correct approach ?
-            set_details_for_login = employee_login(user_id = email, password = "@1Q2w3e4r")
-            set_details_for_login.save()
-            return HttpResponseRedirect(reverse("member",))
-            #return render(request=request, template_name="interne_app/admin/members.html",context={"employee_list":employee_list})
-            # return render(request=request,template_name='interne_app/admin/add_member.html',context={"name":member_details.full_name,"email":member_details.user_email,"phone":member_details.user_phone,"father_name":member_details.father_name})
+        print("Received POST request with data:", request.POST)
+        form = AddMemberForm(request.POST)
+        if form.is_valid():
+            fname = form.cleaned_data['fname']
+            lname = form.cleaned_data['lname']
+            father_name = form.cleaned_data['father_name']
+            email = form.cleaned_data['email']
+            phone = form.cleaned_data['phone']
+            print("Form is valid. Cleaned data:", form.cleaned_data)
+
+            try:
+                member = employee_profile(
+                    father_name=father_name,
+                    user_email=email,
+                    user_phone=phone,
+                    first_name=fname,
+                    last_name=lname
+                )
+                member.save()
+                print("Member saved successfully:", member)
+
+                set_details_for_login = employee_login(user_id=email, password="@1Q2w3e4r")
+                set_details_for_login.save()
+                print("Login details saved successfully for:", email)
+
+                messages.success(request, 'Member added successfully!')
+                return HttpResponseRedirect(reverse("member"))
+            except IntegrityError as e:
+                print("IntegrityError occurred:", e)
+                if email in str(e):
+                    form.add_error('email', 'A member with this email already exists.')
+                if phone in str(e):
+                    form.add_error('phone','A member with this phone already exists')
         else:
-            return render(request= request,template_name='interne_app/admin/add_member.html', context={"error_message":"details could not be submitted"})
+            print("Form is invalid. Errors:", form.errors)
+            messages.error(request, 'There were errors in the form.')
     else:
-        return render(request,'interne_app/admin/add_member.html')
+        print("Received GET request.")
+        form = AddMemberForm()
+
+    print("Rendering form with context.")
+    return render(request, 'interne_app/admin/add_member.html', {'form': form})
+
     
 
 def search(request):

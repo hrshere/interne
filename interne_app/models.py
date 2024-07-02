@@ -38,6 +38,6 @@ class Gender(models.Model):
         ('F', 'Female'),
         ('O', 'Others'),
     ]
-     value = models.CharField(max_length=1,choices=GENDER_CHOICES,default='M')
+     gender = models.CharField(max_length=1,choices=GENDER_CHOICES,default='M')
      
     
