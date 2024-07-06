@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 class employee_login(models.Model):
@@ -14,6 +15,7 @@ class employee_login(models.Model):
         return self.user_id
     
 class employee_profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE,null=True)
     GENDER_CHOICES = [
         ('M', 'Male'),
         ('F', 'Female'),

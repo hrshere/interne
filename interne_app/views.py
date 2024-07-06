@@ -3,9 +3,13 @@ from django.urls import reverse
 from .forms import LoginForm, AddMemberForm
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
-from .models import employee_login, employee_profile, admin_profile
+from .models import employee_login, employee_profile, Gender
 from django.contrib import messages
 from django.db import IntegrityError
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+
 
 
 def index(request):
@@ -18,37 +22,34 @@ def index(request):
             password = form.cleaned_data['password']
             print(user_id, password)
 
-            # Check if a user with the given user_id exists
-            user_exists = employee_login.objects.filter(user_id=user_id).exists()
+            # this takes care of hash - raw password comparison/conversion
+            user = authenticate(request=request,password=password,username=user_id)
 
-            if user_exists:
-                print("User exists")
-                user_authenticated = employee_login.objects.filter(user_id=user_id, password=password).exists()
-                if user_authenticated:
-                    print('user_authentication:', user_authenticated)
-                    role_id = employee_login.objects.get(user_id=user_id)
-                    print("role_id", role_id.roleid)
-                    
-                    if role_id.roleid == 2:
-                        user = employee_profile.objects.get(user_email=user_id)
-                        # userprofile = get_object_or_404(employee_profile, user_email=user_id)
-                        # return render(request, "interne_app/employee/profile.html", context={"userprofile": userprofile})
-                        # return profile(request=request,employee_id=user_id)
-                        return redirect("profile",employee_id=user.pk)
-                    else:
-                        # adminprofile = get_object_or_404(admin_profile, admin_email=user_id)
-                        return HttpResponseRedirect(reverse("member"))
+            if user is not None:
+                login(request=request,user=user)
+                if user.is_staff:
+                    print('staff')
+                    return HttpResponseRedirect(reverse("member")) 
                 else:
-                    form.add_error('password', 'Incorrect password')
+                    emp = employee_profile.objects.get(user_email=user_id)
+                    print("User exists")
+                    return redirect("profile",employee_id=emp.pk)
+                    
             else:
-                form.add_error('user_id', 'User does not exist')
+                    form.add_error('password', 'Incorrect password')
+            # else:
+            #     form.add_error('user_id', 'User does not exist')
     
     # If GET request or invalid form submission, render login page with form
     return render(request, 'interne_app/login.html', {'form': form})
 
-
+@login_required
 def profile(request, employee_id):
+
     userprofile = get_object_or_404(employee_profile,id=employee_id)
+    if not request.user.is_staff and userprofile.user_email != request.user.email:
+        print('Unauthorized re')
+        return HttpResponse('Unauthorized re')  # Replace 'unauthorized' with your unauthorized access view
     my_template = loader.get_template("interne_app/employee/profile.html")
     context = {
         "userprofile": userprofile
@@ -96,9 +97,10 @@ def add_member(request):
     else:
         print("Received GET request.")
         form = AddMemberForm()
+    genders = Gender.objects.all()
 
     print("Rendering form with context.")
-    return render(request, 'interne_app/admin/add_member.html', {'form': form})
+    return render(request, 'interne_app/admin/add_member.html', {'form': form, 'genders':genders})
 
     
 
@@ -134,3 +136,7 @@ def member(request):
     employee_list = employee_profile.objects.all()
     
     return render(request, 'interne_app/admin/members.html', {'employee_list': employee_list})
+
+def user_logout(request):
+    logout(request)
+    return redirect('login')
